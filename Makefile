@@ -5,7 +5,8 @@ LDFLAGS = -lm
 BIN = funkygrad
 
 SRCS = src/main.c \
-			src/graph.c
+			src/graph.c \
+			src/f_matrix.c
 
 OBJS = $(SRCS:/c=.o)
 
