@@ -25,7 +25,7 @@ mat* initMatrix(int rows, int cols)
   }
 
   for (int i = 0; i < rows; i++) {
-    A->elem[i] = (double*)malloc(cols * sizeof(int));
+    A->elem[i] = (double*)malloc(cols * sizeof(double));
     if (A->elem[i] == NULL){
       fprintf(stderr, "Memory allocation failed\n");
       for (int j = 0; j < i; j++) {                     //Can replace with freeMatrix function
