@@ -1,14 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "f_matrix.h"
 
 #define MAX_LENGTH 1000
-
-typedef struct mat {
-  double **elem;
-  int i;
-  int j;
-
-} mat;
 
 mat* initMatrix(int rows, int cols)
 {
@@ -34,7 +28,7 @@ mat* initMatrix(int rows, int cols)
     A->elem[i] = (double*)malloc(cols * sizeof(int));
     if (A->elem[i] == NULL){
       fprintf(stderr, "Memory allocation failed\n");
-      for (int j = 0; j < i; j++) {
+      for (int j = 0; j < i; j++) {                     //Can replace with freeMatrix function
         free(A->elem[j]);
       }
       free(A->elem);
@@ -43,5 +37,18 @@ mat* initMatrix(int rows, int cols)
     }
   }
 return A;
+}
+
+void freeMatrix(mat *A)
+{
+  if (A == NULL) {
+    return;
+   }
+  // Note that A->i is the internal index for matrix
+  for (int i = 0; i < A->i; i++) {
+    free(A->elem[i]);
+  }
+  free(A->elem);
+  free(A);
 }
 
