@@ -4,7 +4,11 @@
 int main(void)
 {
   mat* test = initMatrix(3,4);
+  mat* B = initMatrix(4,3);
+  mat* D = initMatrix(10,10);
+  D = fillIdentity(D);
 
+  B = fillIdentity(B);
   if (test) {
     for (int i = 0; i < test->i; i++) {
       for (int j = 0; j < test->j; j++) {
@@ -17,8 +21,14 @@ int main(void)
       }
       printf("\n");
     }
-    freeMatrix(test);
   }
+
+  printMatrix(test);
+  printMatrix(B);
+  printMatrix(D);
+  freeMatrix(D);
+  freeMatrix(B);
+  freeMatrix(test);
   printf("Hello \n");
   return 0;
 

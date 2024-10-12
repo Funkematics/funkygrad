@@ -52,3 +52,37 @@ void freeMatrix(mat *A)
   free(A);
 }
 
+void printMatrix(mat *A)
+{
+  for (int i = 0; i < A->i; i++) {
+    for (int j = 0; j < A->j; j++) {
+      printf("%f ", A->elem[i][j]);
+    }
+    printf("\n");
+  }
+}
+
+mat* fillIdentity(mat *A)
+{
+
+  if (A->i == A->j) {
+    for (int i = 0; i < A->i; i++) {
+      for (int j = 0; j < A->j; j++){
+        if (i == j) {
+          A->elem[i][j] = 1.0;
+        }
+        else {
+          A->elem[i][j] = 0.0;
+        }
+      }
+    }
+  }
+  else {
+    printf("Matrix must be of square dimensions\n");
+    return A;
+  }
+  return A;
+}
+
+
+

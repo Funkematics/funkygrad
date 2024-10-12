@@ -6,3 +6,5 @@ typedef struct mat {
 
 mat* initMatrix(int rows, int cols);
 void freeMatrix(mat *A);
+void printMatrix(mat *A);
+mat* fillIdentity(mat *A);
