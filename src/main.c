@@ -26,6 +26,9 @@ int main(void)
   printMatrix(test);
   printMatrix(B);
   printMatrix(D);
+  mat* test2 = readMatrix("test.mat");
+  printf("Matrix: %d %d \n", test2->i, test2->j);
+  freeMatrix(test2);
   freeMatrix(D);
   freeMatrix(B);
   freeMatrix(test);

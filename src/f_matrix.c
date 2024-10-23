@@ -78,10 +78,53 @@ mat* fillIdentity(mat *A)
     }
   }
   else {
-    printf("Matrix must be of square dimensions\n");
+    fprintf(stderr, "Matrix must be of square dimensions\n");
     return A;
   }
   return A;
+}
+int count_words(const char *str) 
+{
+  int count = 0;
+  int in_word = 0;
+
+  while(*str) {
+    if (*str == ' ') {
+      in_word = 0;
+    } else if (!in_word) {
+      count++;
+      in_word = 1;
+    }
+    str++;
+  }
+  return count;
+}
+
+mat* readMatrix(const char *filename) 
+{
+  FILE *file;
+  char line[MAX_LENGTH];
+  int rows = 0;
+  int columns = 0;
+
+  file = fopen(filename, "r");
+  if (file == NULL) {
+    fprintf(stderr, "Error opening file");
+    return NULL; 
+  }
+
+  while (fgets(line, sizeof(line), file) != NULL) {
+    rows++;
+    columns = count_words(line);
+    if (columns > MAX_LENGTH && rows > MAX_LENGTH) {
+      columns = MAX_LENGTH;
+      rows = MAX_LENGTH;
+      break;
+    }
+  }
+  fclose(file);
+
+  return initMatrix(rows, columns);
 }
 
 
