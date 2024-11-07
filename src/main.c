@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "f_matrix.h"
 
-int main(void)
+int main(int argc, char* argv[])
 {
   mat* test = initMatrix(3,4);
   mat* B = initMatrix(4,3);

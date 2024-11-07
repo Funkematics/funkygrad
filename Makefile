@@ -6,7 +6,8 @@ BIN = funkygrad
 
 SRCS = src/main.c \
 			src/graph.c \
-			src/f_matrix.c
+			src/f_matrix.c \
+			src/utils.c
 
 OBJS = $(SRCS:/c=.o)
 

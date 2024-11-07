@@ -1,3 +1,6 @@
+
+#define MAX_LENGTH 1000
+
 typedef struct mat {
   double **elem;
   int i;
