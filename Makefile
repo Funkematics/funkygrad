@@ -1,5 +1,5 @@
-CC = gcc
-CFLAGS = -g -Wall -pedantic -std=c17
+CC = mpicc
+CFLAGS = -g -Wall -pedantic -std=c17 -fopenmp
 LDFLAGS = -lm
 
 BIN = funkygrad
@@ -7,7 +7,8 @@ BIN = funkygrad
 SRCS = src/main.c \
 			src/graph.c \
 			src/f_matrix.c \
-			src/utils.c
+			src/utils.c \
+			src/operations.c
 
 OBJS = $(SRCS:/c=.o)
 

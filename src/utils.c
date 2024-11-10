@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <time.h>
 #include "utils.h"
+
 
 mat* readMatrix(const char *filename) 
 {
@@ -28,3 +30,8 @@ mat* readMatrix(const char *filename)
   return initMatrix(rows, columns);
 }
 
+//Just spits out elapsed time between a tic and a toc, inspired by MATLAB
+double tictoc(clock_t tic, clock_t toc)
+{
+  return (double)(toc - tic) / CLOCKS_PER_SEC;
+}

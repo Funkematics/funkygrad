@@ -5,5 +5,6 @@
 #include "f_matrix.h"
 
 mat* readMatrix(const char *filename); 
+double tictoc(clock_t tic, clock_t toc);
 
 #endif

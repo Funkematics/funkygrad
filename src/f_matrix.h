@@ -1,3 +1,5 @@
+#ifndef F_MATRIX_H
+#define F_MATRIX_H
 
 #define MAX_LENGTH 1000
 
@@ -12,5 +14,6 @@ mat* initMatrix(int rows, int cols);
 void freeMatrix(mat *A);
 void printMatrix(mat *A);
 mat* fillIdentity(mat *A);
-int count_words(const char *str); 
-mat* readMatrix(const char *filename); 
+int count_words(const char *str);
+
+#endif

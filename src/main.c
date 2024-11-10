@@ -1,8 +1,22 @@
 #include <stdio.h>
-#include "f_matrix.h"
+#include <mpi.h>
+#include <omp.h>
+#include <time.h>
+#include "utils.h"
 
-int main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
+  //MPI Initialization stuff
+  
+  MPI_Init(&argc, &argv);
+  int world_size, world_rank;
+
+  MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+  MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+  
+  clock_t tic, toc;
+  tic = clock();
+
   mat* test = initMatrix(3,4);
   mat* B = initMatrix(4,3);
   mat* D = initMatrix(10,10);
@@ -23,6 +37,8 @@ int main(int argc, char* argv[])
     }
   }
 
+  toc = clock();
+  
   printMatrix(test);
   printMatrix(B);
   printMatrix(D);
@@ -32,7 +48,7 @@ int main(int argc, char* argv[])
   freeMatrix(D);
   freeMatrix(B);
   freeMatrix(test);
-  printf("Hello \n");
+  printf("Time it takes between tic and toc = %fms\n", tictoc(tic,toc));
   return 0;
 
 }
